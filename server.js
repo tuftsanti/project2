@@ -1,47 +1,100 @@
-//___________________
-//Dependencies
-//___________________
+//COMMENT OUT DOTENV WHEN PUSHING!
+require('dotenv').config();
+////////////////////////////////////////////////////
+
+// SETUP FILES
 const express = require('express');
-const methodOverride  = require('method-override');
-const mongoose = require ('mongoose');
-const app = express ();
+const methodOverride = require('method-override');
+const mongoose = require('mongoose');
+const app = express();
 const db = mongoose.connection;
-//___________________
-//Port
-//___________________
-// Allow use of Heroku's port or your own local port, depending on the environment
 const PORT = process.env.PORT || 3000;
-//___________________
-//Database
-//___________________
-// How to connect to the database either via heroku or locally
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/project2';
-// Connect to Mongo
-mongoose.connect(MONGODB_URI ,  { useNewUrlParser: true, useFindAndModify: true, useUnifiedTopology: true });
-// Error / success
-db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
-db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
-db.on('disconnected', () => console.log('mongo disconnected'));
+
+const Item = require('./models/item.js')
+const show = console.log;
+const routeController = require('./controllers/controller.js');
+const session = require('express-session')
+const bcrypt = require('bcrypt')
+const User = require('./models/users.js');
+const userController = require('./controllers/users_controller.js')
+
+// SETUP DATABASE
+const MONGOURI = process.env.MONGOURI || 'mongodb://localhost/project2'
+
+mongoose.connect(MONGOURI ,  { useNewUrlParser: true, useFindAndModify: true, useUnifiedTopology: true });
+db.on('error', (error) => show(err.message + ' is Mongo running?'));
+db.on('connected', () => show('mongo connected: ', MONGOURI));
+db.on('disconnected', () => show('mongo disconnected'));
 // open the connection to mongo
-db.on('open' , ()=>{});
-//___________________
-//Middleware
-//___________________
-//use public folder for static assets
+db.on('open' , () => {});
+
+
+// MIDDLEWARE
+app.use(express.urlencoded({extended:false}));
+app.use(methodOverride('_method'));
+app.use(express.json());
 app.use(express.static('public'));
-// populates req.body with parsed info from forms - if no data from forms will return an empty object {}
-app.use(express.urlencoded({ extended: false }));// extended: false - does not allow nested objects in query strings
-app.use(express.json());// returns middleware that only parses JSON - may or may not need it depending on your project
-//use method override
-app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
-//___________________
-// Routes
-//___________________
-//localhost:3000 
-app.get('/' , (req, res) => {
-  res.send('Hello World!');
+app.use(session({secret: process.env.SECRET, resave: false, saveUninitialized: false}))
+app.set('view engine', 'jsx');
+app.engine('jsx', require('express-react-views').createEngine());
+
+// CONTROLLERS
+app.use('/list', routeController);
+app.use('/user', userController)
+
+// HOME ROUTE
+app.get('/', (req,res) => {
+    res.redirect('/list/')
+})
+
+// CHECK AUTHENTICATION
+const authenticated = (req, res, next) => {
+    if (req.session.currentUser) {
+        return next()
+    } else {
+        res.redirect('/session/new')
+    }
+}
+
+// AUTHORIZATION
+app.get('/session/new', (req,res) => {
+    res.render('sessions/New', {
+    currentUser: req.session.currentUser})
+})
+
+app.post('/session/', (req,res) => {
+
+    User.findOne({username: req.body.username}, (error, found) => {
+        if(error) {
+            res.send(error)
+        } else if (!found) {
+            res.redirect('/user/new')
+        } else {
+            if (bcrypt.compareSync(req.body.password, found.password)) {
+                req.session.currentUser = found.username
+                res.redirect('/list/')
+            } else {
+                res.send(`Sorry, that password is incorrect.<br/>
+                <a href="/list">Click Here to Return to the main list</a>`)
+            }
+        }
+    
+    })
+})
+
+// Destroys session 
+app.delete('/session/', (req,res) => {
+    req.session.destroy(() => {
+        res.redirect('/sessions/New')
+    })
+})
+
+mongoose.connect(MONGOURI, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: true});
+db.once('open', ()=> {
+    show('Now connected to mongo');
 });
-//___________________
-//Listener
-//___________________
-app.listen(PORT, () => console.log( 'Listening on port:', PORT));
+
+// LISTEN ROUTE
+app.listen(PORT, () => {
+    show(`Listening on port: ${PORT}...`);
+})

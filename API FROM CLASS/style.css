@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Heebo&display=swap');
+
+:root {
+    --mainfont: 'Heebo', sans-serif;
+    --titlefont: 'Anton', sans-serif;
+}
+
+body {
+    font-family: var(--mainfont);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--titlefont);
+    text-align: center;
+    text-transform: uppercase;
+}
+
+h1 span {
+    color: darkred;
+}
+
+main {
+    width: 80%;
+    margin: 15px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+article {
+    width: 60%;
+    background-color: darkred;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+main article div {
+    width: 250px;
+    height: 250px;
+    padding: 15px;
+    background-color: darksalmon;
+    color: darkred;
+    text-align: center;
+    margin: 10px;
+}
+
+main aside {
+    width: 30%;
+    padding: 10px;
+    text-align: center;
+    border: 3px solid darkred;
+}

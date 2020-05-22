@@ -1,0 +1,78 @@
+:root {
+    --neongreen: #76b83d;
+    --darkgreen: darkgreen;
+    --lightgreen: green;
+}
+* {
+    background-color: var(--darkgreen);
+    max-width: 100%;
+    margin: auto;
+    color: azure;
+}
+.indexContainer {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.indexUlContainer {
+    border: 2px solid azure;
+    width: 80%;
+    background-color:var(--neongreen);
+    /* display: flex; */
+    padding: 15px;
+}
+.showContainer {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid azure;
+    width: 50%;
+    background-color: var(--neongreen);
+    display: flex;
+    padding: 15px;
+}
+ul > img {
+    margin: 15px;
+}
+h1 {
+    text-align: center;
+    color: var(--neongreen);
+    font-size: 50px;
+}
+h3 {
+    background-color: var(--neongreen);
+    font-size: 40px;
+    max-width: 80%;
+    padding: 20px auto;
+}
+h4, a, p {
+    background-color: var(--neongreen);
+    font-size: 20px;
+    max-width: 100%;
+    padding: 20px auto;
+    color: azure;
+}
+h2 {
+    color: var(--lightgreen);
+    text-align: center;
+}
+li {
+    background-color: var(--neongreen);
+    text-align: center;
+    list-style-type: none;
+    color: var(--lightgreen);
+}
+input {
+    display: block;
+    font-size: 20px;
+    background-color: var(--neongreen);
+    background: var(--lightgreen);
+    width:  fit-content;
+}
+.deleteForm {
+    background: var(--neongreen);
+}
+img {
+    display: block;
+    margin: auto;
+}
