@@ -88,7 +88,7 @@ app.post('/session/', (req,res) => {
 // Destroys session 
 app.delete('/session/', (req,res) => {
     req.session.destroy(() => {
-        res.redirect('/sessions/New')
+        res.redirect('/session/new')
     })
 })
 
