@@ -1,5 +1,5 @@
 //COMMENT OUT DOTENV WHEN PUSHING!
-require('dotenv').config();
+// require('dotenv').config();
 ////////////////////////////////////////////////////
 
 // SETUP FILES
