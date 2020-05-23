@@ -19,11 +19,11 @@ const User = require('./models/users.js');
 const userController = require('./controllers/users_controller.js')
 
 // SETUP DATABASE
-const MONGOURI = process.env.MONGOURI || 'mongodb://localhost/project2'
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/project2'
 
-mongoose.connect(MONGOURI ,  { useNewUrlParser: true, useFindAndModify: true, useUnifiedTopology: true });
+mongoose.connect(MONGODB_URI ,  { useNewUrlParser: true, useFindAndModify: true, useUnifiedTopology: true });
 db.on('error', (error) => show(err.message + ' is Mongo running?'));
-db.on('connected', () => show('mongo connected: ', MONGOURI));
+db.on('connected', () => show('mongo connected: ', MONGODB_URI));
 db.on('disconnected', () => show('mongo disconnected'));
 // open the connection to mongo
 db.on('open' , () => {});
