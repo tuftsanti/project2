@@ -1,6 +1,5 @@
-//COMMENT OUT DOTENV WHEN PUSHING!
-// require('dotenv').config();
-////////////////////////////////////////////////////
+// REQUIREMENTS
+require('dotenv').config();
 
 // SETUP FILES
 const express = require('express');
@@ -34,7 +33,11 @@ app.use(express.urlencoded({extended:false}));
 app.use(methodOverride('_method'));
 app.use(express.json());
 app.use(express.static('public'));
-app.use(session({secret: process.env.SECRET, resave: false, saveUninitialized: false}))
+app.use(session({
+    secret: 'SECRET', //process.env.SECRET,
+     resave: false,
+      saveUninitialized: false
+    }))
 app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
 
