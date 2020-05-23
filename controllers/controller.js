@@ -4,7 +4,7 @@ const show = console.log
 const mongoose = require('mongoose')
 const Item = require('../models/item.js')
 
-// IS AUTHENTICATED
+// AUTHENTICATE THE USER
 const authenticated = (req, res, next) => {
     if (req.session.currentUser) {
         return next()
@@ -14,7 +14,7 @@ const authenticated = (req, res, next) => {
 }
 /// ROUTES ///
 // INDEX ROUTE
-routeController.get('/', authenticated, (req,res) => {
+routeController.get('/', (req,res) => {
     const showAll = (error, allItems) => {
         if (error) {
             show(error)

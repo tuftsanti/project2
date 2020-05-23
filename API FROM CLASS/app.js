@@ -24,7 +24,7 @@
 // $.ajax('https://randomuser.me/api/?results=10')
 // fetch('https://randomuser.me/api/?results=10')
 //     .then((initial) => initial.json())
-axios(`http://ldeverauxserver:Leonleon93@ldeveraux.ddns.net:9999/`)
+axios(`http://ldeverauxserver:Leonleon93@ldeveraux.ddns.net:9999/gui`)
     .then((response) => {
         //Test Console.log
         console.log(response);

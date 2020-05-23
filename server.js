@@ -1,6 +1,7 @@
 // REQUIREMENTS
 require('dotenv').config();
 
+
 // SETUP FILES
 const express = require('express');
 const methodOverride = require('method-override');
@@ -40,6 +41,44 @@ app.use(session({
     }))
 app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
+
+// utorrent
+// const utorrent = require('utorrent-api')
+// const Client = require('utorrent-api')
+// http://ldeveraux.ddns.net:9999/gui/
+const utorrentClient = require('utorrent-api');
+const request = require('request')
+const utorrent = new utorrentClient('ldeveraux.ddns.net', '9999');
+utorrent.setCredentials('ldeverauxserver', 'Leonleon93');
+utorrent.call('list', function (error, data) {
+    if (error) {
+        show(error)
+    } else {
+        show(data)
+    }
+})
+// console.log("hello")
+// utorrent.call('list');
+
+// machinepack
+//////////////////////////////////////////////////
+// const UTorrent = require('machinepack-utorrent');
+// // List all Torrents from the uTorrent client.
+
+// UTorrent.listTorrents({
+//     host: 'ldeveraux.ddns.net',
+//     port: 9999,
+//     username: 'ldeverauxserver',
+//     password: 'Leonleon93',
+//     }).exec({
+//         // An unexpected error occurred.
+//         error: function (err) {
+//         },
+//         // OK.
+//         success: function () {
+//         },
+//     });
+
 
 // CONTROLLERS
 app.use('/list', routeController);
