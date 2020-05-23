@@ -89,7 +89,7 @@ app.delete('/session/', (req,res) => {
     })
 })
 
-mongoose.connect(MONGOURI, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: true});
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: true});
 db.once('open', ()=> {
     show('Now connected to mongo');
 });
