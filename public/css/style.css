@@ -62,12 +62,23 @@ li {
     list-style-type: none;
     color: var(--lightgreen);
 }
-input {
+.deleteButton {
     display: block;
     font-size: 20px;
     background-color: var(--neongreen);
     background: var(--lightgreen);
     width:  fit-content;
+}
+.nav-item {
+    border: 0;
+    outline: 0;
+    background: none;
+    cursor: pointer;
+    color: azure;
+    padding: 0;
+    text-decoration: none;
+    font-family: inherit;
+    font-size: inherit;
 }
 .deleteForm {
     background: var(--neongreen);

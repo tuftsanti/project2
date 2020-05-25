@@ -60,21 +60,21 @@ routeController.get('/:id/edit', authenticated, (req,res) => {
 routeController.get('/seed', authenticated, (req,res) => {
     Item.create([
         {
-            artist: `Artist 1`,
-            date: `Date 1`,
-            location: `Location 1`,
+            artist: `Adam & The Ants`,
+            date: `1981-09-08`,
+            location: `NYC`,
             listenedTo: false
         },
         {
-            artist: `Artist 2`,
-            date: `Date 2`,
-            location: `Location 2`,
+            artist: `Chicago Transit Authority`,
+            date: `1969-12-12`,
+            location: `Concertgebouw, Amsterdam`,
             listenedTo: false 
         },
         {
-            artist: `Artist 3`,
-            date: `Date 3`,
-            location: `Location 3`,
+            artist: `Eric Johnson-Terry Bozzio Group`,
+            date: `2005-11-05`,
+            location: `Ruta Maya, Austin-TX`,
             listenedTo: true
         }
     ], (error, item) => {

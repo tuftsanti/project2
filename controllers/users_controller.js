@@ -12,7 +12,7 @@ users.post('/', (req,res) => {
         req.body.password,
         bcrypt.genSaltSync(10))
     
-    console.log(req.body)
+    // console.log(req.body)
 
     User.create(req.body, (error, createdUser) => {
         console.log(createdUser)
