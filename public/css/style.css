@@ -51,6 +51,7 @@ h4, a, p {
     max-width: 100%;
     padding: 20px auto;
     color: azure;
+    font-size: 2em;
 }
 h2 {
     color: var(--lightgreen);
@@ -79,6 +80,9 @@ li {
     text-decoration: none;
     font-family: inherit;
     font-size: inherit;
+}
+.navbar-brand {
+    font-size: 20px;
 }
 .deleteForm {
     background: var(--neongreen);

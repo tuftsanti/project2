@@ -4,11 +4,15 @@ const Layout = require('./Layout')
 class Edit extends React.Component {
     render () {
         return (
-            <Layout>
+            <Layout username={this.props.username}>
+                
                 <h1>Edit this item</h1>
                 {/* <a href="/list">Return to the Music Index</a> */}
                 <form action="/list">
                     <input type="submit" value="Back to the list"/>
+                </form>
+                <form action={`/list/${this.props.item._id}`}>
+                    <input type="submit" value="Back to the item"/>
                 </form>
                 <form action={`/list/${this.props.item._id}?_method=PUT`} method="POST">
 

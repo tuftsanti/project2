@@ -32,7 +32,9 @@ routeController.get('/', (req,res) => {
 
 // NEW ROUTE
 routeController.get('/new', authenticated, (req,res) => {
-    res.render('New.jsx')
+    res.render('New.jsx', {
+        username:req.session.currentUser
+    })
 });
 
 // DELETE ROUTE
@@ -51,7 +53,8 @@ routeController.delete('/:id', authenticated, (req,res) => {
 routeController.get('/:id/edit', authenticated, (req,res) => {
     Item.findById(req.params.id, (error, item) => {
         res.render('Edit.jsx', {
-            item: item
+            item: item,
+            username:req.session.currentUser
         })
     })
 })

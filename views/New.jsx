@@ -4,7 +4,7 @@ const Layout = require('./Layout')
 class New extends React.Component {
     render () {
         return (
-            <Layout>
+            <Layout username={this.props.username}>
                 <h1>Create a request</h1>
                 <form action="/list">
                     <input type="submit" value="Back to the list"/>
