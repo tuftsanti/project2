@@ -2,42 +2,56 @@
     --neongreen: #76b83d;
     --darkgreen: darkgreen;
     --lightgreen: green;
+    --footer: #00ae5e;
 }
 * {
-    background-color: var(--darkgreen);
+    /* background-color: var(--darkgreen); */
+    background: var(--darkgreen);
     max-width: 100%;
     margin: auto;
     color: azure;
+}
+body {
+    background-color: var(--darkgreen);
+    /* display: block; */
+    text-align: center;
 }
 .indexContainer {
     text-align: center;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    font-size: 2em;
+    background-color: var(--darkgreen);
+    /* max-width: 90%; */
+    /* padding: 0em 2em; */
 }
 .indexUlContainer {
+    /* align-items: center;
+    margin: 0; */
     border: 2px solid azure;
-    width: 80%;
-    background-color:var(--neongreen);
+    /* width: 100%; */
+    /* background-color:var(--lightgreen); */
     /* display: flex; */
-    padding: 15px;
+    /* padding: 15px; */
 }
 .showContainer {
     display: flex;
     flex-direction: column;
-    border: 2px solid azure;
-    width: 50%;
+    /* border: 2px solid azure; */
+    width: 90%;
     background-color: var(--neongreen);
     display: flex;
-    padding: 15px;
+    /* padding: 15px; */
 }
 ul > img {
     margin: 15px;
 }
 h1 {
     text-align: center;
-    color: var(--neongreen);
+    color: azure;
     font-size: 50px;
+    background-color: var(--lightgreen);
 }
 h3 {
     background-color: var(--neongreen);
@@ -45,13 +59,14 @@ h3 {
     max-width: 80%;
     padding: 20px auto;
 }
-h4, a, p {
+h4 {
     background-color: var(--neongreen);
     font-size: 20px;
     max-width: 100%;
     padding: 20px auto;
     color: azure;
-    font-size: 2em;
+    font-size: 1.5em;
+    text-decoration: none;
 }
 h2 {
     color: var(--lightgreen);
@@ -62,6 +77,15 @@ li {
     text-align: center;
     list-style-type: none;
     color: var(--lightgreen);
+    margin: auto;
+    text-decoration: none;
+}
+a {
+    color: var(--lightgreen);
+}
+p {
+    background-color: var(--lightgreen);
+    font-size: 2em;
 }
 .deleteButton {
     display: block;
@@ -69,11 +93,19 @@ li {
     background-color: var(--neongreen);
     background: var(--lightgreen);
     width:  fit-content;
+    margin: 20px auto;
+}
+.navbar {
+    width: 100%;
+}
+.navbar-nav >li {
+    margin-left: 20px;
+    margin-right: 20px;
 }
 .nav-item {
     border: 0;
     outline: 0;
-    background: none;
+    background: var(--darkgreen);
     cursor: pointer;
     color: azure;
     padding: 0;
@@ -81,13 +113,40 @@ li {
     font-family: inherit;
     font-size: inherit;
 }
+.nav-link {
+    color: azure;
+}
 .navbar-brand {
-    font-size: 20px;
+    font-size: 30px;
+    color:var(--neongreen);
+    /* margin-left: 0; */
 }
 .deleteForm {
     background: var(--neongreen);
 }
+form {
+    text-align: center;
+}
+input {
+    padding: 10px;
+    background: var(--lightgreen);
+    background-color: var(--lightgreen);
+}
+/* #inlineFormInput, inlineFormInputGroup {
+    width: 120px;
+} */
 img {
     display: block;
-    margin: auto;
+    margin: 0px auto;
+    padding: 0;
+}
+#indexTitle {
+    text-align: center;
+    font-size: 50px;
+}
+#footer {
+    display: block;
+    width: auto;
+    height: 120px;
+    background-color: var(--footer);
 }
