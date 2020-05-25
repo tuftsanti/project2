@@ -6,7 +6,7 @@ class Index extends React.Component {
         return (
             <Layout>
                 <div class="indexContainer">
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                {/* <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="/list/">The Music List</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -20,19 +20,27 @@ class Index extends React.Component {
                         <form action="/list/new">
                             <input type="submit" value="Add a Request"/>
                         </form>
+                        
                     </li>
                     <li class="nav-item">
-                        {/* <a class="nav-link" href="/session/?_method=delete" action="/session/?_method=delete" method="post">Logout</a> */}
+                        <a class="nav-item" href="/list/new">Add an Item</a>
+                    </li>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/session/?_method=delete" action="/session/?_method=delete" method="post">Logout</a>
                         {this.props.username ? 
                         <form action="/session/?_method=delete" method="post">
                             <input type="submit" value="Logout"/>
                         </form> : <form action="/session/" method="POST">
-                    username: <input type="text" name="username"/><br/>
-                    password: <input type="password" name="password"/><br/>
-                    <input type="submit" value="Login"/>
-                </form>}
+                            username: <input type="text" name="username"/><br/>
+                            password: <input type="password" name="password"/><br/>
+                            <input type="submit" value="Login"/>
+                        </form>}
                     </li>
-                    {/* <li class="nav-item dropdown">
+                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Dropdown
                         </a>
@@ -42,26 +50,22 @@ class Index extends React.Component {
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Something else here</a>
                         </div>
-                    </li> */}
-                    {/* <li class="nav-item">
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                    </li> */}
+                    </li>
                     </ul>
-                    <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
                 </div>
 
-                        {/* {this.props.username ? 
+                        {this.props.username ? 
                         <form action="/session/?_method=delete" method="post">
                             <input type="submit" value="Click To Logout"/>
-                        </form> : ''} */}
-                        {/* <h1>The Music List</h1> */}
-                        {/* <form action="/list/new">
+                        </form> : ''}
+                        <h1>The Music List</h1>
+                        <form action="/list/new">
                             <input type="submit" value="Add a Request"/>
-                        </form> */}
-                </nav>
+                        </form>
+                </nav> */} FIX THIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
                 <ul class="indexUlContainer">
                     {
                     this.props.item.map((item, index) => {

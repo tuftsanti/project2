@@ -4,10 +4,10 @@ class NewUser extends React.Component {
     render() {
         return (
             <div>
-                <h1>New User</h1>
+                <h1>Create a New User Login</h1>
                 <form action="/user/" method="post">
-                    username: <input type="text" name="username"/><br/>
-                    password: <input type="password" name="password"/><br/>
+                    User name: <input type="text" name="username"/><br/>
+                    Password: <input type="password" name="password"/><br/>
                     <input type="submit" value="Create User"/>
                 </form>
             </div>

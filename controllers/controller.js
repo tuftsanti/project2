@@ -32,7 +32,7 @@ routeController.get('/', (req,res) => {
 
 // NEW ROUTE
 routeController.get('/new', authenticated, (req,res) => {
-    res.render('New')
+    res.render('New.jsx')
 });
 
 // DELETE ROUTE

@@ -100,7 +100,7 @@ const authenticated = (req, res, next) => {
 
 // AUTHORIZATION
 app.get('/session/new', (req,res) => {
-    res.render('sessions/New', {
+    res.render('sessions/New.jsx', {
     currentUser: req.session.currentUser})
 })
 
@@ -110,7 +110,8 @@ app.post('/session/', (req,res) => {
         if(error) {
             res.send(error)
         } else if (!found) {
-            res.redirect('/user/new')
+            res.redirect('/user/new');
+            // alert("That user doesn't exist, please create a new one.")
         } else {
             if (bcrypt.compareSync(req.body.password, found.password)) {
                 req.session.currentUser = found.username
@@ -127,7 +128,8 @@ app.post('/session/', (req,res) => {
 // Destroys session 
 app.delete('/session/', (req,res) => {
     req.session.destroy(() => {
-        res.redirect('/session/new')
+        // res.redirect('/session/new')
+        res.redirect('/')
     })
 })
 
