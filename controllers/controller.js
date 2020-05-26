@@ -4,14 +4,10 @@ const show = console.log
 const mongoose = require('mongoose')
 const Item = require('../models/item.js')
 const shows = require('../models/shows.js')
-// const show = shows.map((value, index) => {
-//     return {
-//         artist: value.artist,
-//         date: value.date,
-//         location: value.location,
-//         listenedTo: value.listenedTo,
-//     }
-// })
+
+const escapeRegex = (text) => {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+};
 
 // AUTHENTICATE THE USER
 const authenticated = (req, res, next) => {
@@ -24,13 +20,34 @@ const authenticated = (req, res, next) => {
 /// ROUTES ///
 // INDEX ROUTE
 routeController.get('/', (req,res) => {
+    let match = '';
+    if(req.query.search) {
+        const searchTerm = new RegExp (escapeRegex(req.query.search), 'gi');
+        Item.find({$or: [{artist: searchTerm}, {date: searchTerm}, {location: searchTerm}]}, (error, searchItem) => {
+            if (error) {
+                show(error)
+            } else {
+                if(searchItem.length < 1) {
+                    match = `That show doesn't exist. Perhaps consider making a request?`;
+                }
+                const props = {
+                    item: searchItem,
+                    // shows: shows,
+                    match: match,
+                    username:req.session.currentUser
+                }
+                res.render('Index', props)
+            }
+        })
+    } else {
     const showAll = (error, allItems) => {
         if (error) {
             show(error)
         } else {
             const props = {
                 item: allItems,
-                shows: shows,
+                // shows: shows,
+                match: match,
                 username:req.session.currentUser
             }
             // show(showAll)
@@ -38,6 +55,7 @@ routeController.get('/', (req,res) => {
         }
     }
     Item.find({}, showAll)
+}
 })
 
 // NEW ROUTE
@@ -127,7 +145,11 @@ routeController.get('/:id', (req,res) => {
     })
 })
 
+// QUERY ROUTE
+// routeController.get('/search/:query', (req,res) => {
+//     const query = req.params.query;
 
+// })
 
 // CREATE ROUTE
 routeController.post('/', authenticated, (req,res) => {

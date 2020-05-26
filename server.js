@@ -123,8 +123,9 @@ app.post('/session/', (req,res) => {
                 req.session.currentUser = found.username
                 res.redirect('/list/')
             } else {
-                res.send(`Sorry, that password is incorrect.<br/>
-                <a href="/list">Click Here to Return to the main list</a>`)
+                // res.send(`Sorry, that password is incorrect.<br/>
+                // <a href="/list">Click here to return to the main list</a>`)
+                res.render('sessions/WrongPass.jsx')
             }
         }
     

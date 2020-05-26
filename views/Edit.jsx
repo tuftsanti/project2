@@ -9,12 +9,14 @@ class Edit extends React.Component {
                 {/* <a href="/list">Return to the Music Index</a> */}
                 <div class="showContainer">
                     <div class="showUl">
-                        <form action="/list">
-                            <input type="submit" value="Back to the list"/>
-                        </form>
-                        <form action={`/list/${this.props.item._id}`}>
-                            <input type="submit" value="Back to the item"/>
-                        </form>
+                        <div class="sameline">
+                            <form action="/list">
+                                <input type="submit" value="Back to the list"/>
+                            </form>
+                            <form action={`/list/${this.props.item._id}`}>
+                                <input type="submit" value="Back to the item"/>
+                            </form>
+                        </div>
                         <form action={`/list/${this.props.item._id}?_method=PUT`} method="POST">
                             <h2>Artist: </h2><input type="text" name="artist" defaultValue={this.props.item.artist}/><br/>
                             <h2>Date: </h2><input type="text" name="date" defaultValue={this.props.item.date}/><br/>
