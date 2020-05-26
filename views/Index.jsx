@@ -2,11 +2,14 @@ const React = require('react')
 const Layout = require('./Layout')
 
 class Index extends React.Component {
+    
+
+
     render() {
         return (
             <Layout username={this.props.username}>
                 <div id="indexTitle">The Music List Index</div>
-                {/* {match = '' ? '' : <h1>{match}</h1>}     */}
+                {this.props.match ? <h1>{this.props.match}</h1> : ''}
                 <ul class="indexUlContainer">
                     {
                     this.props.item.map((item, index) => {
