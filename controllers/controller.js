@@ -3,6 +3,15 @@ const routeController = express.Router()
 const show = console.log
 const mongoose = require('mongoose')
 const Item = require('../models/item.js')
+const shows = require('../models/shows.js')
+// const show = shows.map((value, index) => {
+//     return {
+//         artist: value.artist,
+//         date: value.date,
+//         location: value.location,
+//         listenedTo: value.listenedTo,
+//     }
+// })
 
 // AUTHENTICATE THE USER
 const authenticated = (req, res, next) => {
@@ -21,6 +30,7 @@ routeController.get('/', (req,res) => {
         } else {
             const props = {
                 item: allItems,
+                shows: shows,
                 username:req.session.currentUser
             }
             // show(showAll)
@@ -61,26 +71,29 @@ routeController.get('/:id/edit', authenticated, (req,res) => {
 
 //SEED ROUTE
 routeController.get('/seed', authenticated, (req,res) => {
-    Item.create([
-        {
-            artist: `Adam & The Ants`,
-            date: `1981-09-08`,
-            location: `NYC`,
-            listenedTo: false
-        },
-        {
-            artist: `Chicago Transit Authority`,
-            date: `1969-12-12`,
-            location: `Concertgebouw, Amsterdam`,
-            listenedTo: false 
-        },
-        {
-            artist: `Eric Johnson-Terry Bozzio Group`,
-            date: `2005-11-05`,
-            location: `Ruta Maya, Austin-TX`,
-            listenedTo: true
-        }
-    ], (error, item) => {
+    // Item.create([
+    //     {
+    //         artist: `Adam & The Ants`,
+    //         date: `1981-09-08`,
+    //         location: `NYC`,
+    //         listenedTo: false
+    //     },
+    //     {
+    //         artist: `Chicago Transit Authority`,
+    //         date: `1969-12-12`,
+    //         location: `Concertgebouw, Amsterdam`,
+    //         listenedTo: false 
+    //     },
+    //     {
+    //         artist: `Eric Johnson-Terry Bozzio Group`,
+    //         date: `2005-11-05`,
+    //         location: `Ruta Maya, Austin-TX`,
+    //         listenedTo: true
+    //     }
+    // ], (error, item) => {
+    //     res.redirect('/list')
+    // })
+    Item.create(shows, (error, item) => {
         res.redirect('/list')
     })
 })
@@ -107,6 +120,7 @@ routeController.get('/:id', (req,res) => {
         } else {
             res.render('Show', {
                 item: item,
+                shows: shows,
                 username:req.session.currentUser
             })
         }

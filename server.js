@@ -46,19 +46,21 @@ app.engine('jsx', require('express-react-views').createEngine());
 // const utorrent = require('utorrent-api')
 // const Client = require('utorrent-api')
 // http://ldeveraux.ddns.net:9999/gui/
-const utorrentClient = require('utorrent-api');
-const request = require('request')
-const utorrent = new utorrentClient('ldeveraux.ddns.net', '9999');
-utorrent.setCredentials('ldeverauxserver', 'Leonleon93');
-utorrent.call('list', function (error, data) {
-    if (error) {
-        show(error)
-    } else {
-        show(data)
-    }
-})
-// console.log("hello")
-// utorrent.call('list');
+
+// const utorrentClient = require('utorrent-api');
+// const request = require('request')
+// const utorrent = new utorrentClient('ldeveraux.ddns.net', '9999');
+// utorrent.setCredentials('ldeverauxserver', 'Leonleon93');
+// l
+// utorrent.call('list', function (error, data) {
+//     if (error) {
+//         show(error)
+//     } else {
+//         show(data)
+//         // show(data.torrentc)
+//     }
+// })
+
 
 // machinepack
 //////////////////////////////////////////////////
@@ -78,6 +80,10 @@ utorrent.call('list', function (error, data) {
 //         success: function () {
 //         },
 //     });
+
+// UTorrentClientApi
+/////////////////////
+
 
 
 // CONTROLLERS

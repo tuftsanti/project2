@@ -28,6 +28,8 @@ body {
     /* padding: 0em 2em; */
     position: sticky;
     top: 0;
+    border-radius: 15px;
+    border: 2px solid azure;
 }
 .indexUlContainer {
     display: flex;
