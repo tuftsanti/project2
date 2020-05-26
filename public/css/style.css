@@ -5,8 +5,8 @@
     --footer: #00ae5e;
 }
 * {
-    /* background-color: var(--darkgreen); */
-    background: var(--darkgreen);
+    background-color: var(--darkgreen);
+    /* background: var(--footer); */
     max-width: 100%;
     margin: auto;
     color: azure;
@@ -21,15 +21,20 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    align-items: center;
     font-size: 2em;
     background-color: var(--darkgreen);
     /* max-width: 90%; */
     /* padding: 0em 2em; */
+    position: sticky;
+    top: 0;
 }
 .indexUlContainer {
-    /* align-items: center;
-    margin: 0; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border: 2px solid azure;
+    text-align: center;
     /* width: 100%; */
     /* background-color:var(--lightgreen); */
     /* display: flex; */
@@ -39,10 +44,13 @@ body {
     display: flex;
     flex-direction: column;
     /* border: 2px solid azure; */
-    width: 90%;
+    width: 100;
     background-color: var(--neongreen);
-    display: flex;
     /* padding: 15px; */
+}
+.showUl {
+    width: 75%;
+    text-align: center;
 }
 ul > img {
     margin: 15px;
@@ -69,15 +77,17 @@ h4 {
     text-decoration: none;
 }
 h2 {
-    color: var(--lightgreen);
+    color: azure;
     text-align: center;
 }
 li {
     background-color: var(--neongreen);
     text-align: center;
+    align-items: center;
     list-style-type: none;
     color: var(--lightgreen);
-    margin: auto;
+    margin: 0px;
+    width: 90%;
     text-decoration: none;
 }
 a {
@@ -95,8 +105,9 @@ p {
     width:  fit-content;
     margin: 20px auto;
 }
-.navbar {
+.navbar, .navbar-nav, .collapse {
     width: 100%;
+    /* background-color: var(--darkgreen; */
 }
 .navbar-nav >li {
     margin-left: 20px;
@@ -117,8 +128,8 @@ p {
     color: azure;
 }
 .navbar-brand {
-    font-size: 30px;
-    color:var(--neongreen);
+    font-size: 3rem;
+    color: azure;
     /* margin-left: 0; */
 }
 .deleteForm {
@@ -126,11 +137,13 @@ p {
 }
 form {
     text-align: center;
+    /* background-color: var(--footer); */
 }
 input {
     padding: 10px;
     background: var(--lightgreen);
     background-color: var(--lightgreen);
+    width: auto;
 }
 /* #inlineFormInput, inlineFormInputGroup {
     width: 120px;
@@ -144,9 +157,23 @@ img {
     text-align: center;
     font-size: 50px;
 }
+.indexName {
+    color: azure;
+}
+.footer {
+    background-color: var(--footer);
+    position: sticky;
+    bottom: 0;
+}
 #footer {
     display: block;
     width: auto;
     height: 120px;
     background-color: var(--footer);
+    position: sticky;
 }
+/* .btn {
+    color: azure;
+    background: var(--darkgreen);
+    background-color: var(--darkgreen);
+} */

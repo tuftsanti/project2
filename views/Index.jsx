@@ -11,8 +11,8 @@ class Index extends React.Component {
                     this.props.item.map((item, index) => {
                         return (
                             <li>
-                            <h4><a href={`/list/${item._id}`}>{ item.artist }</a></h4>
-                            <h4><a href={`/list/${item._id}`}>{item.date}</a><br/></h4>
+                            <h4><a class="indexName" href={`/list/${item._id}`}>{ item.artist }</a></h4>
+                            <h4><a class="indexName" href={`/list/${item._id}`}>{item.date}</a><br/></h4>
 
                             <form action={`/list/${item._id}?_method=DELETE`} method="POST">
                                 <input class="deleteButton" type="submit" value="Delete this item from the list"/>

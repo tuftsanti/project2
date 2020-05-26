@@ -1,13 +1,13 @@
 {
 	"folders": [
 		{
-			"path": "controllers"
-		},
-		{
 			"path": "models"
 		},
 		{
 			"path": "views"
+		},
+		{
+			"path": "."
 		}
 	]
 }
