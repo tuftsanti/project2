@@ -4,7 +4,7 @@ const Layout = require('./Layout')
 class Index extends React.Component {
     render() {
         return (
-            <Layout username={this.props.username} title = "The Music List Index">
+            <Layout username={this.props.username} title = {`The Music List Index`}>
                 {/* <div id="indexTitle">The Music List Index</div> */}
                 {this.props.match ? <h1>{this.props.match}</h1> : ''}
                 <ul class="indexUlContainer">
@@ -13,8 +13,12 @@ class Index extends React.Component {
                         return (
                             <li>
                                 <div class="sameline">
+                                    <h4><a class="indexName" href={`/list/${item._id}`}>Artist: </a></h4>
                                     <h4><a class="indexName" href={`/list/${item._id}`}>{item.artist}</a></h4>
-                                    <h4><a class="indexName" href={`/list/${item._id}`}>{item.date}</a><br/></h4>
+                                </div>
+                                <div class="sameline">
+                                    <h4><a class="indexName" href={`/list/${item._id}`}>Date:</a></h4>
+                                    <h4><a class="indexName" href={`/list/${item._id}`}>{item.date}</a></h4>
                                 </div>
                                 <form action={`/list/${item._id}?_method=DELETE`} method="POST">
                                     <input class="deleteButton" type="submit" value="Delete this item from the list"/>

@@ -1,55 +1,55 @@
 const shows = [
     {
-        artist: '10000 Maniacs',
-        date: '1986-04-29',
+        artist: '10,000 Maniacs',
+        date: '4-29-1986',
         location: 'Winnipeg, Canada',
         listenedTo: false
     },
     {
-        artist: '10CC',
-        date: '1983-09-30',
+        artist: '10 CC',
+        date: '9-30-1983',
         location: 'Rotterdam',
         listenedTo: false
     },
     {
         artist: '2 Live Crew',
-        date: '1990-11-07',
+        date: '11-7-1990',
         location: 'Los Angeles, CA',
         listenedTo: false
     },
     {
         artist: 'Robert Plant',
-        date: '1989-09-04',
+        date: '9-4-1989',
         location: 'San Diego, CA',
         listenedTo: false
     },
     {
         artist: 'Bon Jovi',
-        date: '1990-10-25',
+        date: '10-25-1990',
         location: 'Holland',
         listenedTo: false
     },
     {
         artist: 'AC/DC',
-        date: '1977-04-22',
+        date: '4-22-1977',
         location: 'Sweden',
         listenedTo: false
     },
     {
         artist: 'Acoustic Guitar All Stars',
-        date: '1995-10-13',
+        date: '10-13-1995',
         location: 'Hickory, NC',
         listenedTo: false
     },
     {
         artist: 'Bob Seger and the Silver Bullet Band',
-        date: '1981-09-08',
+        date: '9-8-1981',
         location: 'New York City',
         listenedTo: false
     },
     {
         artist: 'The Rolling Stones',
-        date: '1988-08-25',
+        date: '8-25-1988',
         location: 'Great Woods, MA',
         listenedTo: false
     }
