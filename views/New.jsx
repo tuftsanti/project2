@@ -4,8 +4,8 @@ const Layout = require('./Layout')
 class New extends React.Component {
     render () {
         return (
-            <Layout username={this.props.username}>
-                <h1>Create a request</h1>
+            <Layout username={this.props.username} title = "Request a show">
+                {/* <h1>Create a request</h1> */}
                 <div class="showContainer">
                     <div class="showUl">
                         <form action="/list">

@@ -10,7 +10,7 @@ const escapeRegex = (text) => {
 };
 
 // AUTHENTICATE THE USER
-const authenticated = (req, res, next) => {
+const authenticate = (req, res, next) => {
     if (req.session.currentUser) {
         return next()
     } else {
@@ -57,14 +57,14 @@ routeController.get('/', (req,res) => {
 })
 
 // NEW ROUTE
-routeController.get('/new', authenticated, (req,res) => {
+routeController.get('/new', authenticate, (req,res) => {
     res.render('New.jsx', {
         username:req.session.currentUser
     })
 });
 
 // DELETE ROUTE
-routeController.delete('/:id', authenticated, (req,res) => {
+routeController.delete('/:id', authenticate, (req,res) => {
 
     Item.findByIdAndRemove(req.params.id, (error, item) => {
         if (error) {
@@ -76,7 +76,7 @@ routeController.delete('/:id', authenticated, (req,res) => {
 })
 
 // EDIT ROUTE
-routeController.get('/:id/edit', authenticated, (req,res) => {
+routeController.get('/:id/edit', authenticate, (req,res) => {
     Item.findById(req.params.id, (error, item) => {
         const props = {
             item: item,
@@ -91,7 +91,7 @@ routeController.get('/:id/edit', authenticated, (req,res) => {
 })
 
 //SEED ROUTE
-routeController.get('/seed', authenticated, (req,res) => {
+routeController.get('/seed', authenticate, (req,res) => {
     // Item.create([
     //     {
     //         artist: `Adam & The Ants`,
@@ -119,7 +119,7 @@ routeController.get('/seed', authenticated, (req,res) => {
     })
 })
 // PUT ROUTE
-routeController.put('/:id', authenticated, (req, res)=>{
+routeController.put('/:id', authenticate, (req, res)=>{
     if(req.body.listenedTo === 'on'){
         req.body.listenedTo = true;
     } else {
@@ -155,7 +155,7 @@ routeController.get('/:id', (req,res) => {
 // })
 
 // CREATE ROUTE
-routeController.post('/', authenticated, (req,res) => {
+routeController.post('/', authenticate, (req,res) => {
     // if (req.body.listenedTo === 'on') {
     //     req.body.listenedTo = true 
     // } else {req.body.listenedTo = false}

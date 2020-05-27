@@ -18,37 +18,37 @@ const shows = [
         listenedTo: false
     },
     {
-        artist: 'ABWH',
+        artist: 'Robert Plant',
         date: '1989-09-04',
         location: 'San Diego, CA',
         listenedTo: false
     },
     {
-        artist: 'Accept',
-        date: '1980-10-25',
+        artist: 'Bon Jovi',
+        date: '1990-10-25',
         location: 'Holland',
         listenedTo: false
     },
     {
-        artist: 'ACDC',
+        artist: 'AC/DC',
         date: '1977-04-22',
         location: 'Sweden',
         listenedTo: false
     },
     {
-        artist: 'Acoustic All Stars',
+        artist: 'Acoustic Guitar All Stars',
         date: '1995-10-13',
         location: 'Hickory, NC',
         listenedTo: false
     },
     {
-        artist: 'Adam and the Ants',
+        artist: 'Bob Seger and the Silver Bullet Band',
         date: '1981-09-08',
         location: 'New York City',
         listenedTo: false
     },
     {
-        artist: 'Aerosmith',
+        artist: 'The Rolling Stones',
         date: '1988-08-25',
         location: 'Great Woods, MA',
         listenedTo: false

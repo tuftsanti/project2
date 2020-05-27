@@ -5,7 +5,7 @@
     --footer: #00ae5e;
 }
 * {
-    background-color: var(--darkgreen);
+    /* background-color: var(--lightgreen); */
     /* background: var(--footer); */
     max-width: 100%;
     margin: auto;
@@ -40,7 +40,7 @@ body {
     border-radius: 30px;
     text-align: center;
     /* width: 100%; */
-    /* background-color:var(--lightgreen); */
+    background-color:var(--lightgreen);
     /* display: flex; */
     /* padding: 15px; */
 }
@@ -55,6 +55,7 @@ body {
 .showUl {
     width: 75%;
     text-align: center;
+    border-radius: 30px;
 }
 ul > img {
     margin: 15px;
@@ -95,7 +96,7 @@ h2 {
     text-align: center;
 }
 li {
-    /* background-color: var(--neongreen); */
+    background-color: var(--darkgreen);
     text-align: center;
     align-items: center;
     list-style-type: none;
@@ -156,7 +157,8 @@ p {
 }
 form {
     text-align: center;
-    /* background-color: var(--footer); */
+    background-color: var(--darkgreen);
+    border-radius: 30px;
 }
 input {
     padding: 10px;
