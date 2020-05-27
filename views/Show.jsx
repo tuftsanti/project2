@@ -4,7 +4,7 @@ const Layout = require('./Layout')
 class Show extends React.Component {
     render() {
         return (
-            <Layout username={this.props.username}>
+            <Layout username={this.props.username} title = "Selected Show">
                 
                 <div class="showContainer">
                     <div class="showUl">

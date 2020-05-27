@@ -32,7 +32,6 @@ routeController.get('/', (req,res) => {
                 }
                 const props = {
                     item: searchItem,
-                    // shows: shows,
                     match: match,
                     username:req.session.currentUser
                 }
@@ -46,7 +45,6 @@ routeController.get('/', (req,res) => {
         } else {
             const props = {
                 item: allItems,
-                // shows: shows,
                 match: match,
                 username:req.session.currentUser
             }
@@ -80,10 +78,15 @@ routeController.delete('/:id', authenticated, (req,res) => {
 // EDIT ROUTE
 routeController.get('/:id/edit', authenticated, (req,res) => {
     Item.findById(req.params.id, (error, item) => {
-        res.render('Edit.jsx', {
+        const props = {
             item: item,
             username:req.session.currentUser
-        })
+        }
+        res.render('Edit', props)
+        // res.render('Edit.jsx', {
+        //     item: item,
+        //     username:req.session.currentUser
+        // })
     })
 })
 
@@ -136,11 +139,11 @@ routeController.get('/:id', (req,res) => {
         if (error) {
             show(error)
         } else {
-            res.render('Show', {
+            const props = {
                 item: item,
-                shows: shows,
                 username:req.session.currentUser
-            })
+            }
+            res.render('Show', props)
         }
     })
 })

@@ -29,7 +29,7 @@ body {
     /* padding: 0em 2em; */
     position: sticky;
     top: 0;
-    border-radius: 15px;
+    border-radius: 30px;
     border: 2px solid azure;
 }
 .indexUlContainer {
@@ -37,6 +37,7 @@ body {
     flex-direction: column;
     align-items: center;
     border: 2px solid azure;
+    border-radius: 30px;
     text-align: center;
     /* width: 100%; */
     /* background-color:var(--lightgreen); */
@@ -61,6 +62,8 @@ ul > img {
 .sameline {
     display: flex;
     justify-content: center;
+    border-radius: 30px;
+    /* background-color: var(--neongreen); */
 }
 h1 {
     text-align: center;
@@ -77,27 +80,31 @@ h3 {
     padding: 20px auto;
 }
 h4 {
-    background-color: var(--neongreen);
+    /* background-color: var(--neongreen); */
     font-size: 20px;
     max-width: 100%;
     padding: 20px auto;
     color: azure;
     font-size: 1.5em;
+    border-radius: 30px;
     text-decoration: none;
+    padding-top: 20px;
 }
 h2 {
     color: azure;
     text-align: center;
 }
 li {
-    background-color: var(--neongreen);
+    /* background-color: var(--neongreen); */
     text-align: center;
     align-items: center;
     list-style-type: none;
     color: var(--lightgreen);
-    margin: 0px;
+    margin: 50px 0px;
     width: 90%;
     text-decoration: none;
+    border: 2px solid azure;
+    border-radius: 30px;
 }
 a {
     color: var(--lightgreen);
@@ -118,6 +125,7 @@ p {
 }
 .navbar, .navbar-nav, .collapse {
     width: 100%;
+    border-radius: 30px;
     /* background-color: var(--darkgreen; */
 }
 .navbar-nav >li {
@@ -167,8 +175,6 @@ img {
 #indexTitle {
     text-align: center;
     font-size: 50px;
-    position: sticky;
-    top: 200;
 }
 .indexName {
     color: azure;

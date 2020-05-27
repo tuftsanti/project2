@@ -4,8 +4,8 @@ const Layout = require('./Layout')
 class Edit extends React.Component {
     render () {
         return (
-            <Layout username={this.props.username}>
-                <h1>Edit this item</h1>
+            <Layout username={this.props.username} title = "Edit this show">
+                {/* <h1>Edit this item</h1> */}
                 {/* <a href="/list">Return to the Music Index</a> */}
                 <div class="showContainer">
                     <div class="showUl">
