@@ -42,32 +42,32 @@ app.use(session({
 app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
 
-// utorrent
+// utorrent-api
+///////////////////////
 // const utorrent = require('utorrent-api')
 // const Client = require('utorrent-api')
-// http://ldeveraux.ddns.net:9999/gui/
+// // http://ldeveraux.ddns.net:9999/gui/
 
-const utorrentClient = require('utorrent-api');
-const request = require('request')
-const utorrent = new utorrentClient('ldeveraux.ddns.net', '9999');
-utorrent.setCredentials('guest');
+// const utorrentClient = require('utorrent-api');
+// const request = require('request')
+// const utorrent = new utorrentClient('ldeveraux.ddns.net', '9999');
+// utorrent.setCredentials('guest');
 // GET LIST
-utorrent.call('list', function (error, data) {
-    if (error) {
-        show(error)
-    } else {
-        show(data)
-        // show(data.torrentc)
-    }
-})
+// utorrent.call('list', function (error, data) {
+//     if (error) {
+//         show(error)
+//     } else {
+//         show(data)
+//         // show(data.torrentc)
+//     }
+// })
 // GET INDIVIDUAL
-// utorrent.call('getprops', {'hash': '439C2F116E23A152C53461116CD2E143E72C515A'}, function(err, data) {
+// utorrent.call('getprops', {'name': 'Slayer Final Show 2019-11-30'}, function(err, data) {
 //     if(err) { 
 //         console.log('error : '); console.log(err); return; }
  
 //     console.log(data);
 // });
-
 // utorrent.call('getprops', function(err, data) {
 //     if(err) { 
 //         console.log('error : '); console.log(err); return; }
@@ -84,8 +84,8 @@ utorrent.call('list', function (error, data) {
 // UTorrent.listTorrents({
 //     host: 'ldeveraux.ddns.net',
 //     port: 9999,
-//     username: 'ldeverauxserver',
-//     password: 'Leonleon93',
+//     username: 'guest',
+//     password: '',
 //     }).exec({
 //         // An unexpected error occurred.
 //         error: function (err) {
@@ -95,10 +95,53 @@ utorrent.call('list', function (error, data) {
 //         },
 //     });
 
-// UTorrentClientApi
+// library-uTorrent
 /////////////////////
-
-
+var UTorrent = require('library-utorrent');
+UTorrent.listTorrents({
+    host: 'ldeveraux.ddns.net',
+    port: 9999,
+    username: 'guest',
+    password: '',
+  }).exec({
+  // An unexpected error occurred.
+    error: function (err){
+  
+    },
+    // OK.
+    success: function (torrents){
+        for (item in torrents)
+        console.log(torrents[item].parsed.name)
+      /*
+      torrents is an array of objects:
+      [{
+        parsed: {
+          hash,
+          name,
+          size
+          percentProgressMils,
+          downloadedBytes,
+          uploadedBytes,
+          ratioMils,
+          uploadspeedBytesSec,
+          downloadspeedBytesSec,
+          etaSec,
+          peersConnected,
+          peersSwarm,
+          seedsConnected,
+          seedsSwarm,
+          availability,
+          queueOrder,
+          remainingBytes,
+          torrentUrl,
+          status,
+          downloadDir
+        },
+        raw
+      }, ...]
+      */
+    }
+  });
 
 // CONTROLLERS
 app.use('/list', routeController);
