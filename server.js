@@ -47,19 +47,33 @@ app.engine('jsx', require('express-react-views').createEngine());
 // const Client = require('utorrent-api')
 // http://ldeveraux.ddns.net:9999/gui/
 
-// const utorrentClient = require('utorrent-api');
-// const request = require('request')
-// const utorrent = new utorrentClient('ldeveraux.ddns.net', '9999');
-// utorrent.setCredentials('ldeverauxserver', 'Leonleon93');
-// l
-// utorrent.call('list', function (error, data) {
-//     if (error) {
-//         show(error)
-//     } else {
-//         show(data)
-//         // show(data.torrentc)
-//     }
-// })
+const utorrentClient = require('utorrent-api');
+const request = require('request')
+const utorrent = new utorrentClient('ldeveraux.ddns.net', '9999');
+utorrent.setCredentials('guest');
+// GET LIST
+utorrent.call('list', function (error, data) {
+    if (error) {
+        show(error)
+    } else {
+        show(data)
+        // show(data.torrentc)
+    }
+})
+// GET INDIVIDUAL
+// utorrent.call('getprops', {'hash': '439C2F116E23A152C53461116CD2E143E72C515A'}, function(err, data) {
+//     if(err) { 
+//         console.log('error : '); console.log(err); return; }
+ 
+//     console.log(data);
+// });
+
+// utorrent.call('getprops', function(err, data) {
+//     if(err) { 
+//         console.log('error : '); console.log(err); return; }
+ 
+//     console.log(data);
+// });
 
 
 // machinepack
